@@ -110,20 +110,20 @@ body {
 .myName{
   width: 47vh;
   margin-left: 65%;
-  margin-top: 20vh;
+  margin-top: 25vh;
 }
 .FirstName{
   color: #6b04f3;
-  font-size: 180px; /* Big letter */
+  font-size: 800%; /* Big letter */
   font-weight: 900;
   font-family: Comic Sans MS;
 }
 .SecondName{
   color:#6b04f3;
-  font-size: 180px; /* Big letter */
+  font-size: 800%; /* Big letter */
   font-weight: 900;
   font-family: Comic Sans MS;
-  margin-left: 25vh
+  margin-left: 15vh
 }
 
 
