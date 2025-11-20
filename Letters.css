@@ -37,7 +37,7 @@ body {
 
   /* Left navigation bar */
   .sidebar {
-    width: 10%;
+    width: clamp(80px, 10vw, 180px);
     height: 100%;
     background-color: black;
     box-sizing: border-box;
@@ -101,6 +101,10 @@ body {
     flex: 1;
     background: black;
     overflow: hidden;
+
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: center; 
   }
 .menu-panel.active {
   opacity: 1;
@@ -108,22 +112,39 @@ body {
   pointer-events: auto;
 }
 .myName{
-  width: 47vh;
-  margin-left: 65%;
-  margin-top: 25vh;
+  text-align: center;
 }
 .FirstName{
   color: #6b04f3;
-  font-size: 800%; /* Big letter */
+  font-size: clamp(40px, 8vw, 140px);
   font-weight: 900;
   font-family: Comic Sans MS;
 }
 .SecondName{
   color:#6b04f3;
-  font-size: 800%; /* Big letter */
+  font-size: clamp(40px, 8vw, 140px);
   font-weight: 900;
   font-family: Comic Sans MS;
   margin-left: 15vh
 }
+@media (max-width: 900px) {
+  .FirstName, .SecondName {
+    font-size: clamp(30px, 12vw, 80px);
+  }
 
+  .sidebar {
+    width: 20vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar {
+    width: 25vw;
+  }
+
+  .menu-panel li {
+    transform: none;
+    line-height: 200%;
+  }
+}
 
