@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter's</title>
+    <link rel="stylesheet" href="Letters.css">
+    <script src="https://kit.fontawesome.com/641ebe97e2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="sidebar">
+    <div class="displayArea">
+    <div class="Letter"><button class="Logo">W</button></div>
+        <div class="menu-open" id="menu-open"><button class="menu-open-button"><i class="fa-brands fa-codepen"></i></button>
+          <div id="menuPanel" class="menu-panel">
+              <li><a href=""><i class="fa-solid fa-user"  style="font-size: xx-large; color: rgb(5, 168, 243)"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/walter-guo-4a7779387/" target="_blank"><i class="fa-brands fa-linkedin" style="font-size: xx-large; color: rgb(5, 168, 243)"></i></a></li>
+              <li><a href="https://github.com/WalllerG" target="_blank"><i class="fa-brands fa-github"  style="font-size: xx-large; color: rgb(5, 168, 243);"></i></a></li>
+              <li><a href="https://www.instagram.com/walterrrrr.g/" target="_blank"><i class="fa-brands fa-square-instagram" style="font-size: xx-large; color: rgb(5, 168, 243);"></i></a></li>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="contentArea" id="contentArea">
+    <div class="myName">
+      <div class="FirstName"><p>Walter</p></div>
+      <div class="SecondName"><p>Guo</p></div>
+    </div>
+  </div>
+  <script>
+  const btn = document.querySelector(".menu-open-button");
+  const menu = document.getElementById("menuPanel");
+
+  btn.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
+</script>
+</body>
+</html>
