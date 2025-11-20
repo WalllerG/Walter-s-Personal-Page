@@ -37,15 +37,15 @@ body {
 
   /* Left navigation bar */
   .sidebar {
-    width: 12vh;
+    width: 10%;
+    height: 100%;
     background-color: black;
     box-sizing: border-box;
     border: 2px solid #8a2be2;
     animation: rgbGlow 4s linear infinite;
-    height: 100%;
   }
   .displayArea{
-    padding: 12%;
+    padding: 10%;
     margin-top: 7vh;
   }
   .menu-open{
@@ -76,14 +76,14 @@ body {
 }
 
  .menu-panel{
-    padding: 2.3vh;
+    padding: 3vh;
     transform: translateY(-10px);
     transition: 0.25s ease;
     opacity: 0;
     pointer-events: none;
  }
   .menu-panel li {
-    line-height: 800%;
+    line-height: 300%;
     transition: transform 0.2s ease;
   }
   .menu-panel li:hover{
