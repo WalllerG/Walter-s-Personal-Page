@@ -45,16 +45,53 @@ body {
     animation: rgbGlow 4s linear infinite;
   }
   .displayArea{
-    padding: 10%;
-    margin-top: 7vh;
+    padding: clamp(10px, 2vw, 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers content so it never overflows */
   }
   .menu-open{
     margin-top: 6vh;
     padding: 0.7vh;
   }
+  .BlockArea{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    margin-top: 10vh; 
+    gap: 7vw; 
+  }
+  .BlockArea .FirstBlock, .BlockArea .SecondBlock, .BlockArea .ThirdBlock{
+    font-family: Comic Sans MS;
+    color: #09ecb7;
+    width: 350px;
+    height: 350px;
+    font-size: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid white;
+    border-radius: 30px;
+
+    opacity: 0;                    /* start invisible */
+    transform: translateY(40px);   /* start lower */
+    animation: slideUp 2s ease forwards;
+  }
+  .BlockArea .FirstBlock, .BlockArea .SecondBlock, .BlockArea .ThirdBlock :hover{
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  @keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
   @keyframes rgbGlow {
   0% {
-    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000;
+    box-shadow: 0 0 5px #00ffe5, 0 0 10px #ff0000, 0 0 20px #ff0000;
     border-color: #ff0000;
   }
   25% {
@@ -73,7 +110,7 @@ body {
     box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000;
     border-color: #ff0000;
   }
-}
+  }
 
  .menu-panel{
     padding: 3vh;
@@ -81,9 +118,12 @@ body {
     transition: 0.25s ease;
     opacity: 0;
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2.5vw, 3rem);
  }
   .menu-panel li {
-    line-height: 300%;
+    line-height: 2;
     transition: transform 0.2s ease;
   }
   .menu-panel li:hover{
@@ -92,8 +132,11 @@ body {
   .menu-panel li:active{
     transform: scale(0.95);
   }
-  .menu-panel:active{
-    transform: scale(0.95);
+  .menu-panel.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transform: scale(0.95);
   }
 
   /* The bouncing area on the right */
@@ -102,31 +145,15 @@ body {
     background: black;
     overflow: hidden;
 
-    display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center; 
+    flex-direction: column;     /* <-- stack items vertically */
+    justify-content: flex-start;
+    align-items: center;   
   }
-.menu-panel.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-.myName{
+  .myName{
   text-align: center;
-}
-.FirstName{
-  color: #6b04f3;
-  font-size: clamp(40px, 8vw, 140px);
-  font-weight: 900;
-  font-family: Comic Sans MS;
-}
-.SecondName{
-  color:#6b04f3;
-  font-size: clamp(40px, 8vw, 140px);
-  font-weight: 900;
-  font-family: Comic Sans MS;
-  margin-left: 15vh
-}
+  height: fit-content;
+  }
+
 @media (max-width: 900px) {
   .FirstName, .SecondName {
     font-size: clamp(30px, 12vw, 80px);
@@ -147,4 +174,53 @@ body {
     line-height: 200%;
   }
 }
+.FirstName span,
+.SecondName span {
+  display: inline-block;
+  opacity: 0;
+  animation: staggerFadeUp 0.6s ease-out forwards;
+  color: #6b04f3;
+  font-size: clamp(40px, 8vw, 140px);
+  font-weight: 900;
+  font-family: Comic Sans MS;
+  transition: transform 0.2s ease, text-shadow 0.25s ease;
+}
+.FirstName span:hover,
+.SecondName span:hover,
+.Logo:hover{
+  transform: scale(1.25);
+  text-shadow:
+    0 0 8px #e3d6ef,
+    0 0 15px #e3d6ef,
+    0 0 25px #e3d6ef;
+    cursor: pointer;
+}
+@keyframes staggerFadeUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.BlockArea .FirstBlock:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.BlockArea .SecondBlock:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.BlockArea .ThirdBlock:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.FirstName span:nth-child(1) { animation-delay: 0.0s; }
+.FirstName span:nth-child(2) { animation-delay: 0.10s; }
+.FirstName span:nth-child(3) { animation-delay: 0.20s; }
+.FirstName span:nth-child(4) { animation-delay: 0.30s; }
+.FirstName span:nth-child(5) { animation-delay: 0.40s; }
+.FirstName span:nth-child(6) { animation-delay: 0.50s; }
 
+.SecondName span:nth-child(1) { animation-delay: 0.35s; }
+.SecondName span:nth-child(2) { animation-delay: 0.40s; }
+.SecondName span:nth-child(3) { animation-delay: 0.45s; }
