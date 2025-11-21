@@ -20,8 +20,13 @@
     transition: transform 0.2s ease;
     cursor: pointer;
 }
-.Logo:hover, .menu-open-button:hover{
+.Logo:hover{
     transform: scale(1.1);
+    transition: 1s;
+}
+.menu-open-button:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 .Logo:active, .menu-open-button:active{
     transform: scale(0.95);
@@ -61,7 +66,9 @@ body {
     margin-top: 10vh; 
     gap: 7vw; 
   }
-  .BlockArea .FirstBlock, .BlockArea .SecondBlock, .BlockArea .ThirdBlock{
+  .FirstBlock,
+  .SecondBlock,
+  .ThirdBlock{
     font-family: Comic Sans MS;
     color: #09ecb7;
     width: 350px;
@@ -72,17 +79,43 @@ body {
     justify-content: center;
     align-items: center;
 
-    border: 2px solid white;
     border-radius: 30px;
 
+    transition: 1s ease;
+    cursor: pointer
+  }
+  .blockWrapper{
     opacity: 0;                    /* start invisible */
     transform: translateY(40px);   /* start lower */
     animation: slideUp 2s ease forwards;
   }
-  .BlockArea .FirstBlock, .BlockArea .SecondBlock, .BlockArea .ThirdBlock :hover{
-    cursor: pointer;
+  .FirstBlock:hover, 
+  .SecondBlock:hover, 
+  .ThirdBlock:hover{
     transform: scale(1.05);
+    transition: 1s;
   }
+  .FirstBlock::before,
+  .SecondBlock::before,
+  .ThirdBlock::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    padding: 2px;
+    background: linear-gradient(120deg, #f0067b, #8a2be2, #f0067b);
+    background-size: 200% 200%;
+    animation: borderFlow 3s linear infinite;
+    mask: 
+      linear-gradient(#f0067b 0 0) content-box, 
+      linear-gradient(#f0067b  0 0);
+    -webkit-mask-composite: xor;
+      mask-composite: exclude;
+}
+  @keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
   @keyframes slideUp {
     to {
         opacity: 1;
@@ -205,13 +238,13 @@ body {
     opacity: 1;
   }
 }
-.BlockArea .FirstBlock:nth-child(1) {
+.blockWrapper:nth-child(1) {
     animation-delay: 0.2s;
 }
-.BlockArea .SecondBlock:nth-child(2) {
+.blockWrapper:nth-child(2) {
     animation-delay: 0.4s;
 }
-.BlockArea .ThirdBlock:nth-child(3) {
+.blockWrapper:nth-child(3) {
     animation-delay: 0.6s;
 }
 .FirstName span:nth-child(1) { animation-delay: 0.0s; }
