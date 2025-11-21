@@ -80,7 +80,6 @@ body {
     align-items: center;
 
     border-radius: 30px;
-
     transition: 1s ease;
     cursor: pointer
   }
@@ -88,6 +87,9 @@ body {
     opacity: 0;                    /* start invisible */
     transform: translateY(40px);   /* start lower */
     animation: slideUp 2s ease forwards;
+  }
+  .blockWrapper a{
+    text-decoration: none;
   }
   .FirstBlock:hover, 
   .SecondBlock:hover, 
@@ -106,6 +108,7 @@ body {
     background: linear-gradient(120deg, #f0067b, #8a2be2, #f0067b);
     background-size: 200% 200%;
     animation: borderFlow 3s linear infinite;
+    pointer-events: none;
     mask: 
       linear-gradient(#f0067b 0 0) content-box, 
       linear-gradient(#f0067b  0 0);
