@@ -1,7 +1,7 @@
 .Logo{
     font-size: 100px; /* Big letter */
     font-weight: 900;
-    background: linear-gradient(135deg, #1e90ff, #8a2be2); /* blue → purple */
+    background: wheat; /* blue → purple */
     -webkit-background-clip: text; /* show gradient inside text */
     -webkit-text-fill-color: transparent; /* hide solid color */
     border: none;
@@ -11,8 +11,8 @@
     cursor: pointer;
 }
 .menu-open-button{
-    font-size: 70px; /* Big letter */
-    background: linear-gradient(135deg, #1e90ff, #8a2be2); /* blue → purple */
+    font-size: 70px; /* Big letter */  
+    background: wheat; /* blue → purple */
     -webkit-background-clip: text; /* show gradient inside text */
     -webkit-text-fill-color: transparent; /* hide solid color */
     border: none;
@@ -36,7 +36,7 @@ body {
     display: flex;
     height: 100vh;
     overflow: hidden;
-    background-color: black;
+    background: linear-gradient(300deg, rgb(255, 255, 255),rgb(238, 201, 238));
 
   }
 
@@ -44,10 +44,9 @@ body {
   .sidebar {
     width: clamp(80px, 10vw, 180px);
     height: 100%;
-    background-color: black;
     box-sizing: border-box;
-    border: 2px solid #8a2be2;
-    animation: rgbGlow 4s linear infinite;
+    border: 2px solid wheat;
+    background-color: rgb(227, 161, 7);
   }
   .displayArea{
     padding: clamp(10px, 2vw, 30px);
@@ -70,10 +69,11 @@ body {
   .SecondBlock,
   .ThirdBlock{
     font-family: Comic Sans MS;
-    color: #09ecb7;
+    color: wheat;
     width: 350px;
     height: 350px;
     font-size: 30px;
+    font-weight: 100;
 
     display: flex;
     justify-content: center;
@@ -105,13 +105,13 @@ body {
     inset: 0;
     border-radius: 30px;
     padding: 2px;
-    background: linear-gradient(120deg, #f0067b, #8a2be2, #f0067b);
+    background: wheat;
     background-size: 200% 200%;
     animation: borderFlow 3s linear infinite;
     pointer-events: none;
     mask: 
-      linear-gradient(#f0067b 0 0) content-box, 
-      linear-gradient(#f0067b  0 0);
+      linear-gradient(wheat) content-box, 
+      linear-gradient(wheat);
     -webkit-mask-composite: xor;
       mask-composite: exclude;
 }
@@ -127,60 +127,67 @@ body {
 }
   @keyframes rgbGlow {
   0% {
-    box-shadow: 0 0 5px #00ffe5, 0 0 10px #ff0000, 0 0 20px #ff0000;
+    box-shadow: 0 0 5px #00ffe5, 0 0 10px #ff0000, 0 0 1px #ff0000;
     border-color: #ff0000;
   }
   25% {
-    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 1px #00ff00;
     border-color: #00ff00;
   }
   50% {
-    box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 20px #0000ff;
+    box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 1px #0000ff;
     border-color: #0000ff;
   }
   75% {
-    box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 1px #ff00ff;
     border-color: #ff00ff;
   }
   100% {
-    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 1px #ff0000;
     border-color: #ff0000;
   }
   }
 
  .menu-panel{
     padding: 3vh;
-    transform: translateY(-10px);
+    transform: translateX(-10px);
     transition: 0.25s ease;
     opacity: 0;
     pointer-events: none;
     display: flex;
     flex-direction: column;
     gap: clamp(1rem, 2.5vw, 3rem);
+    width: fit-content; 
+    background: rgb(240, 236, 202);
+    border-radius: 20px;
+    margin-top: 4vh;
+    transition: ease 0.5s;
  }
-  .menu-panel li {
-    line-height: 2;
-    transition: transform 0.2s ease;
+ 
+  .menu-panel span {
+    line-height: 400%;
+    transition: transform 0.8s ease;
+    
   }
-  .menu-panel li:hover{
+  .menu-panel span:hover{
     transform: scale(1.4);
   }
-  .menu-panel li:active{
+  .menu-panel span:active{
     transform: scale(0.95);
   }
   .menu-panel.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
   pointer-events: auto;
   transform: scale(0.95);
+  transition: ease 0.8s;
   }
 
   /* The bouncing area on the right */
   .contentArea {
     flex: 1;
-    background: black;
     overflow: hidden;
-
+    background: linear-gradient(rgb(227, 161, 7),rgb(215, 172, 90));
     flex-direction: column;     /* <-- stack items vertically */
     justify-content: flex-start;
     align-items: center;   
@@ -205,7 +212,7 @@ body {
     width: 25vw;
   }
 
-  .menu-panel li {
+  .menu-panel span{
     transform: none;
     line-height: 200%;
   }
@@ -215,7 +222,7 @@ body {
   display: inline-block;
   opacity: 0;
   animation: staggerFadeUp 0.6s ease-out forwards;
-  color: #6b04f3;
+  color: wheat;
   font-size: clamp(40px, 8vw, 140px);
   font-weight: 900;
   font-family: Comic Sans MS;
